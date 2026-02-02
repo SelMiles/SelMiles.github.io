@@ -1,5 +1,5 @@
 /* ======================================= */
-/* STYLES FINALS SELMILES (V11 - Aéré & Justifié) */
+/* STYLES FINALS SELMILES (V12 - Full Central) */
 /* ======================================= */
 
 :root {
@@ -57,7 +57,6 @@ header {
     border: 1px solid #ced4da; 
     border-radius: 0.5rem;
     overflow: hidden; 
-    align-self: flex-start; 
 }
 
 .lang-switch button {
@@ -150,7 +149,7 @@ h2 {
     border-bottom: 1px solid #e9ecef;
 }
 
-/* 4. À PROPOS & PARTENAIRES (CORRIGÉ) */
+/* 4. À PROPOS & PARTENAIRES */
 #about {
     text-align: center; 
 }
@@ -161,7 +160,7 @@ h2 {
     font-size: 1.1rem;
     max-width: 850px;
     margin: 0 auto;
-    text-align: justify; /* Pour éviter le pâté centré */
+    text-align: justify; 
     line-height: 1.8;
 }
 
@@ -258,7 +257,6 @@ h2 {
     transform: rotateY(180deg);
 }
 
-/* Carte noire "Gestion des retours" */
 .card-flip-container.card-center .card-flip-front,
 .card-flip-container.card-center .card-flip-back {
     background-color: var(--dark-color);
@@ -290,7 +288,11 @@ h2 {
     margin-bottom: 0.5rem;
 }
 
-/* 7. CONTACT */
+/* 7. CONTACT (Correction Centrage Email & Style) */
+#contact {
+  text-align: center; 
+}
+
 .contact-form {
   display: flex;
   flex-direction: column;
@@ -301,6 +303,7 @@ h2 {
   background-color: var(--form-bg); 
   box-shadow: 0 0 30px var(--form-shadow); 
   border-radius: 1rem;
+  text-align: left;
 }
 
 .contact-form input, .contact-form textarea {
@@ -320,6 +323,25 @@ h2 {
   color: #fff;
   border: none;
   cursor: pointer;
+  width: 100%;
+}
+
+.email-link {
+    display: inline-block;
+    margin-top: 1.5rem;
+    text-decoration: none;
+    color: var(--accent-color); /* Retour à la couleur violette */
+    font-weight: 600;
+    font-size: 1.15rem;
+}
+
+.email-link:hover {
+    text-decoration: underline;
+}
+
+#contact p {
+    text-align: center;
+    margin: 0 auto;
 }
 
 /* 8. FOOTER */
