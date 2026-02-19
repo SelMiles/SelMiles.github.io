@@ -120,7 +120,7 @@
       <input type="number" id="cartons" name="cartons" required>
 
       <label for="pallet_info" data-i18n="reception.pallet_info">Précisions sur les palettes (si livré sur palette)</label>
-      <textarea id="pallet_info" name="pallet_info" rows="2" placeholder="Ex: 50 cartons sur une palette, 2 palettes complètes, palettes à retourner..."></textarea>
+      <textarea id="pallet_info" name="pallet_info" rows="2" data-i18n-placeholder="reception.pallet_placeholder"></textarea>
 
       <label for="product_list" data-i18n="reception.product_list" class="required">Liste des produits (SKU, désignation, quantité)</label>
       <textarea id="product_list" name="product_list" rows="5" required></textarea>
@@ -194,6 +194,7 @@ const translations = {
     "reception.eta": "Date estimée d'arrivée",
     "reception.cartons": "Nombre total de cartons / colis",
     "reception.pallet_info": "Précisions sur les palettes (si livré sur palette)",
+    "reception.pallet_placeholder": "Ex: 50 cartons sur une palette, 2 palettes complètes, palettes à retourner...",
     "reception.product_list": "Liste des produits (SKU, désignation, quantité)",
     "reception.special_instructions": "Instructions particulières",
     "reception.submit": "Envoyer la réception"
@@ -248,6 +249,7 @@ const translations = {
     "reception.eta": "Estimated arrival date",
     "reception.cartons": "Total number of cartons / parcels",
     "reception.pallet_info": "Pallet details (if delivered on pallets)",
+    "reception.pallet_placeholder": "E.g: 50 cartons on one pallet, 2 full pallets, pallets to return...",
     "reception.product_list": "Product list (SKU, description, quantity)",
     "reception.special_instructions": "Special instructions",
     "reception.submit": "Submit reception"
@@ -302,6 +304,7 @@ const translations = {
     "reception.eta": "预计到达日期",
     "reception.cartons": "纸箱/包裹总数",
     "reception.pallet_info": "托盘详情（如果使用托盘交付）",
+    "reception.pallet_placeholder": "例如：一个托盘上50个纸箱，2个完整托盘，需退回的托盘...",
     "reception.product_list": "产品列表 (SKU, 描述, 数量)",
     "reception.special_instructions": "特殊说明",
     "reception.submit": "提交收货信息"
