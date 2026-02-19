@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SelMiles – Formulaire de réception</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+<style>
+  .reception-form {
+    max-width: 600px;
+    margin: 2rem auto;
+    padding: 2rem;
+    background: #f9f9f9;
+    border-radius: 12px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  }
+  .reception-form label {
+    display: block;
+    margin-top: 1rem;
+    font-weight: 600;
+    color: #333;
+  }
+  .reception-form input,
+  .reception-form select,
+  .reception-form textarea {
+    width: 100%;
+    padding: 0.75rem;
+    margin-top: 0.25rem;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    font-family: 'Poppins', sans-serif;
+    font-size: 1rem;
+  }
+  .reception-form button {
+    margin-top: 2rem;
+    width: 100%;
+    padding: 1rem;
+    background: #28a745;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 1.2rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.3s;
+  }
+  .reception-form button:hover {
+    background: #218838;
+  }
+  .required::after {
+    content: " *";
+    color: red;
+  }
+  .info-note {
+    text-align: center;
+    margin-bottom: 1rem;
+    font-style: italic;
+    color: #666;
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="header-top">
+    <img src="logo_selmiles.png" alt="SelMiles logo" class="main-logo"> 
+    <div class="lang-switch">
+      <button onclick="applyLang('fr')">FR</button>
+      <button onclick="applyLang('en')">EN</button>
+      <button onclick="applyLang('cn')">CN</button>
+    </div>
+  </div>
+  <nav class="header-nav">
+    <a href="index.html#about" data-i18n="nav.about">À propos</a>
+    <a href="index.html#services" data-i18n="nav.services">Services</a>
+    <a href="index.html#advantages" data-i18n="nav.advantages">Pourquoi SelMiles</a>
+    <a href="index.html#contact" data-i18n="nav.contact">Contact</a>
+    <a href="reception.html" data-i18n="nav.reception">Réception</a>
+  </nav>
+</header>
+
+<main style="min-height: 70vh;">
+  <section style="padding: 2rem;">
+    <h1 data-i18n="reception.title" style="text-align: center; margin-bottom: 0.5rem;">Formulaire de réception de stock</h1>
+    <p class="info-note" data-i18n="reception.note">Merci de remplir ce formulaire au moins 72h avant l'arrivée de votre marchandise.</p>
+
+    <form class="reception-form" action="https://formspree.io/f/xeelljoe" method="POST">
+      <input type="hidden" name="language" id="lang-field" value="fr">
+
+      <label for="client_name" data-i18n="reception.client_name" class="required">Nom du client</label>
+      <input type="text" id="client_name" name="client_name" required>
+
+      <label for="email" data-i18n="reception.email" class="required">Email</label>
+      <input type="email" id="email" name="email" required>
+
+      <label for="reference" data-i18n="reception.reference">Référence interne / Commande</label>
+      <input type="text" id="reference" name="reference">
+
+      <label for="supplier" data-i18n="reception.supplier" class="required">Fournisseur / Expéditeur</label>
+      <input type="text" id="supplier" name="supplier" required>
+
+      <label for="carrier" data-i18n="reception.carrier" class="required">Transporteur</label>
+      <select id="carrier" name="carrier" required>
+        <option value="Colissimo" data-i18n="reception.colissimo">Colissimo</option>
+        <option value="Mondial Relay" data-i18n="reception.mondial_relay">Mondial Relay</option>
+        <option value="DHL" data-i18n="reception.dhl">DHL</option>
+        <option value="Autre" data-i18n="reception.other">Autre</option>
+      </select>
+
+      <label for="tracking" data-i18n="reception.tracking" class="required">Numéro de suivi / BL</label>
+      <input type="text" id="tracking" name="tracking" required>
+
+      <label for="eta" data-i18n="reception.eta" class="required">Date estimée d'arrivée</label>
+      <input type="date" id="eta" name="eta" required>
+
+      <label for="cartons" data-i18n="reception.cartons" class="required">Nombre de cartons / palettes</label>
+      <input type="number" id="cartons" name="cartons" required>
+
+      <label for="product_list" data-i18n="reception.product_list" class="required">Liste des produits (SKU, désignation, quantité)</label>
+      <textarea id="product_list" name="product_list" rows="5" required></textarea>
+
+      <label for="special_instructions" data-i18n="reception.special_instructions">Instructions particulières</label>
+      <textarea id="special_instructions" name="special_instructions" rows="3"></textarea>
+
+      <button type="submit" data-i18n="reception.submit">Envoyer la réception</button>
+    </form>
+  </section>
+</main>
+
+<footer>
+  <p class="copyright-text">© 2025 SelMiles. Tous droits réservés.</p>
+  <div class="footer-logos">
+    <a href="https://www.linkedin.com/company/selmiles/" target="_blank"><img src="linkedIn_icon.png" alt="LinkedIn"></a>
+    <a href="https://www.instagram.com/selmiles_logistics/" target="_blank"><img src="instagram_icon.png" alt="Instagram"></a>
+    <a href="https://wa.me/33773059777" target="_blank"><img src="whatsapp_logo_icon.png" alt="WhatsApp"></a>
+  </div>
+</footer>
+
+<script>
+const translations = {
+  fr: {
+    "nav.about": "À propos",
+    "nav.services": "Services",
+    "nav.advantages": "Pourquoi SelMiles",
+    "nav.contact": "Contact",
+    "nav.reception": "Réception",
+    "hero.title":"Vendre n’a jamais été aussi simple, malgré les kilomètres.",
+    "hero.lead":"L’excellence logistique au service du commerce mondial.",
+    "hero.cta": "Demander un devis",
+    "about.title":"À propos",
+    "about.text":"<strong>SelMiles</strong> est un prestataire de logistique tierce partie (3PL) basé en France, spécialisé dans l’optimisation des flux Maroc & Chine vers l’Europe.<br><br>La société accompagne des e-commerçants et fournisseurs internationaux dans la gestion complète de leur chaîne logistique : stockage, préparation de commandes et expédition depuis la France vers le marché européen.<br><br>Positionnée comme un pont stratégique entre les hubs de production mondiaux et l’Europe, SelMiles s’appuie sur une expertise opérationnelle rigoureuse et une gestion polyglotte (français, anglais, chinois, darija) pour garantir des opérations fiables, rapides et structurées.<br><br>SelMiles met à disposition des vendeurs du monde entier une infrastructure logistique performante en France, conçue pour soutenir une croissance durable sur le marché européen.",
+    "about.mention":"SelMiles est un service 3PL fondé par Selma SAIDI, entrepreneuse basée en France.",
+    "partners.title":"Partenaires",
+    "partners.text":"SelMiles s’appuie sur un réseau de partenaires stratégiques afin de sécuriser et fluidifier les flux logistiques internationaux, du point d’origine jusqu’au marché européen.",
+    "services.title":"Services",
+    "services.receive.front":"<span class='card-icon'>✅</span> Réception & contrôle",
+    "services.receive.back":"Réception et contrôle sous 24h",
+    "services.storage.front":"<span class='card-icon'>📍</span> Stockage & inventaire",
+    "services.storage.back":"Inventaire en temps réel",
+    "services.fulfilment.front":"<span class='card-icon'>📦</span> Préparation & emballage",
+    "services.fulfilment.back":"Préparation selon planning",
+    "services.labeling.front":"<span class='card-icon'>🚚</span> Étiquetage & expédition",
+    "services.labeling.back":"Remise au transporteur rapide",
+    "services.returns.front":"<span class='card-icon'>╰┈➤</span> Gestion des retours",
+    "services.returns.back":"Retour traité sous 48h",
+    "advantages.title":"Pourquoi SelMiles",
+    "advantages.flexible":"<span class='card-icon'>💡</span> Pont Maroc/Chine-Europe",
+    "advantages.cost":"<span class='card-icon'>〽️</span> Solutions flexibles : du test au volume",
+    "advantages.support":"<span class='card-icon'>⚙️</span> Communication proactive 24h",
+    "contact.title":"Contact",
+    "contact.email_text":"✉️ Envoyer un email",
+    "contact.send_button": "Envoyer",
+    "contact.name_placeholder": "Nom",
+    "contact.email_placeholder": "Email",
+    "contact.message_placeholder": "Votre question...",
+    "reception.title": "Formulaire de réception de stock",
+    "reception.note": "Merci de remplir ce formulaire au moins 72h avant l'arrivée de votre marchandise.",
+    "reception.client_name": "Nom du client",
+    "reception.email": "Email",
+    "reception.reference": "Référence interne / Commande",
+    "reception.supplier": "Fournisseur / Expéditeur",
+    "reception.carrier": "Transporteur",
+    "reception.colissimo": "Colissimo",
+    "reception.mondial_relay": "Mondial Relay",
+    "reception.dhl": "DHL",
+    "reception.other": "Autre",
+    "reception.tracking": "Numéro de suivi / BL",
+    "reception.eta": "Date estimée d'arrivée",
+    "reception.cartons": "Nombre de cartons / palettes",
+    "reception.product_list": "Liste des produits (SKU, désignation, quantité)",
+    "reception.special_instructions": "Instructions particulières",
+    "reception.submit": "Envoyer la réception"
+  },
+  en: {
+    "nav.about": "About",
+    "nav.services": "Services",
+    "nav.advantages": "Why SelMiles",
+    "nav.contact": "Contact",
+    "nav.reception": "Reception",
+    "hero.title":"<strong>Sel</strong>ling made simple — no matter the <strong>Miles</strong>.",
+    "hero.lead":"Logistics Excellence Serving Global Commerce.",
+    "hero.cta": "Request a quote",
+    "about.title":"About",
+    "about.text":"<strong>SelMiles</strong> is a France-based third-party logistics (3PL) provider, specialising in optimising Morocco & China to Europe flows.<br><br>The company supports international e-commerce sellers and suppliers in managing their entire supply chain: storage, order fulfillment, and shipping from France to the European market.<br><br>Positioned as a strategic bridge between global production hubs and Europe, SelMiles relies on rigorous operational expertise and polyglot management (French, English, Chinese, Darija) to ensure reliable, fast, and structured operations.<br><br>SelMiles offers sellers worldwide a high-performance logistics infrastructure in France, designed to support sustainable growth in the European market.",
+    "about.mention":"SelMiles is a 3PL service founded by Selma SAIDI, an entrepreneur based in France.",
+    "partners.title":"Partners",
+    "partners.text":"SelMiles relies on strategic partners to secure international logistics flows from origin to Europe.",
+    "services.title":"Services",
+    "services.receive.front":"<span class='card-icon'>✅</span> Receiving & Quality Check",
+    "services.receive.back":"Receiving within 24h",
+    "services.storage.front":"<span class='card-icon'>📍</span> Storage & Inventory",
+    "services.storage.back":"Real-time inventory tracking",
+    "services.fulfilment.front":"<span class='card-icon'>📦</span> Pick & Pack Fulfillment",
+    "services.fulfilment.back":"Rigorous preparation",
+    "services.labeling.front":"<span class='card-icon'>🚚</span> Labeling & Shipping",
+    "services.labeling.back":"Standard carrier handover",
+    "services.returns.front":"<span class='card-icon'>╰┈➤</span> Returns Management",
+    "services.returns.back":"Returns processed within 48h",
+    "advantages.title":"Why SelMiles",
+    "advantages.flexible":"<span class='card-icon'>💡</span> Morocco/China–Europe Bridge",
+    "advantages.cost":"<span class='card-icon'>〽️</span> Flexible: from test to high volume",
+    "advantages.support":"<span class='card-icon'>⚙️</span> Proactive 24h tracking",
+    "contact.title":"Contact",
+    "contact.email_text":"✉️ Send an email",
+    "contact.send_button": "Send",
+    "contact.name_placeholder": "Name",
+    "contact.email_placeholder": "Email",
+    "contact.message_placeholder": "Your message...",
+    "reception.title": "Stock Reception Form",
+    "reception.note": "Please fill out this form at least 72 hours before your shipment arrives.",
+    "reception.client_name": "Client name",
+    "reception.email": "Email",
+    "reception.reference": "Internal reference / Order ID",
+    "reception.supplier": "Supplier / Shipper",
+    "reception.carrier": "Carrier",
+    "reception.colissimo": "Colissimo",
+    "reception.mondial_relay": "Mondial Relay",
+    "reception.dhl": "DHL",
+    "reception.other": "Other",
+    "reception.tracking": "Tracking number / BOL",
+    "reception.eta": "Estimated arrival date",
+    "reception.cartons": "Number of cartons / pallets",
+    "reception.product_list": "Product list (SKU, description, quantity)",
+    "reception.special_instructions": "Special instructions",
+    "reception.submit": "Submit reception"
+  },
+  cn: {
+    "nav.about": "关于",
+    "nav.services": "服务",
+    "nav.advantages": "为什么选择我们",
+    "nav.contact": "联系",
+    "nav.reception": "收货表格",
+    "hero.title":"销售从未如此简单，无惧万里之遥。",
+    "hero.lead":"致力于全球贸易的卓越物流",
+    "hero.cta": "请求报价",
+    "about.title":"关于",
+    "about.text":"<strong>SelMiles</strong> 是一家总部位于法国的第三方物流（3PL）服务提供商，专注于优化摩洛哥和中国至欧洲的物流流程。<br><br>公司为国际电商卖家和供应商提供完整供应链管理服务：仓储、订单履行及从法国到欧洲市场的发货。<br><br>作为全球生产中心与欧洲之间的战略桥梁，SelMiles 依托严格的运营专业能力和多语言管理（法语、英语、中文、达里贾语），确保物流操作可靠、高效且有序。<br><br>SelMiles 为全球卖家提供法国高性能物流基础设施，旨在支持欧洲市场的可持续增长。",
+    "about.mention":"SelMiles 是由居住在法国的企业家 Selma SAIDI 创立的 3PL 服务。",
+    "partners.title":"合作伙伴",
+    "partners.text":"SelMiles 借助战略合作伙伴网络，确保国际物流流程安全、高效。",
+    "services.title":"服务",
+    "services.receive.front":"<span class='card-icon'>✅</span> 收货及质检",
+    "services.receive.back":"24小时内完成收货",
+    "services.storage.front":"<span class='card-icon'>📍</span> 仓储与库存",
+    "services.storage.back":"实时库存追踪",
+    "services.fulfilment.front":"<span class='card-icon'>📦</span> 订单处理",
+    "services.fulfilment.back":"根据计划严格准备",
+    "services.labeling.front":"<span class='card-icon'>🚚</span> 包装与标签",
+    "services.labeling.back":"快速交付给承运商",
+    "services.returns.front":"<span class='card-icon'>╰┈➤</span> 退货管理",
+    "services.returns.back":"48小时内处理退货",
+    "advantages.title":"为什么选择 SelMiles",
+    "advantages.flexible":"<span class='card-icon'>💡</span> 摩洛哥/中国—欧洲桥梁",
+    "advantages.cost":"<span class='card-icon'>〽️</span> 灵活方案：大/小批量订单",
+    "advantages.support":"<span class='card-icon'>⚙️</span> 主动沟通与24小时追踪",
+    "contact.title":"联系",
+    "contact.email_text":"✉️ 发送邮件",
+    "contact.send_button": "发送",
+    "contact.name_placeholder": "名称",
+    "contact.email_placeholder": "电子邮件",
+    "contact.message_placeholder": "您的问题...",
+    "reception.title": "收货表格",
+    "reception.note": "请在货物到达前至少72小时填写此表格。",
+    "reception.client_name": "客户名称",
+    "reception.email": "电子邮件",
+    "reception.reference": "内部参考 / 订单号",
+    "reception.supplier": "供应商 / 发货人",
+    "reception.carrier": "承运人",
+    "reception.colissimo": "Colissimo",
+    "reception.mondial_relay": "Mondial Relay",
+    "reception.dhl": "DHL",
+    "reception.other": "其他",
+    "reception.tracking": "追踪号码 / 提单",
+    "reception.eta": "预计到达日期",
+    "reception.cartons": "纸箱 / 托盘数量",
+    "reception.product_list": "产品列表 (SKU, 描述, 数量)",
+    "reception.special_instructions": "特殊说明",
+    "reception.submit": "提交收货信息"
+  }
+};
+
+function applyLang(lang){
+  document.querySelectorAll('[data-i18n]').forEach(el => {
+    const key = el.getAttribute('data-i18n');
+    if (translations[lang] && translations[lang][key]) {
+      el.innerHTML = translations[lang][key];
+    }
+  });
+  document.querySelectorAll('[data-i18n-placeholder]').forEach(el => {
+    const key = el.getAttribute('data-i18n-placeholder');
+    if (translations[lang] && translations[lang][key]) {
+      el.setAttribute('placeholder', translations[lang][key]);
+    }
+  });
+  document.getElementById('lang-field').value = lang;
+  localStorage.setItem('lang', lang);
+}
+applyLang(localStorage.getItem('lang') || 'fr');
+</script>
+</body>
+</html>
