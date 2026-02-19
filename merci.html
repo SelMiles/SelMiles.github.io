@@ -9,10 +9,23 @@
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="style.css">
 <style>
+  body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    margin: 0;
+  }
+  main {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem;
+  }
   .thankyou-container {
     max-width: 600px;
-    margin: 4rem auto;
-    padding: 2rem;
+    width: 100%;
+    padding: 3rem 2rem;
     text-align: center;
     background: #f9f9f9;
     border-radius: 12px;
@@ -21,9 +34,12 @@
   .thankyou-container h1 {
     color: #28a745;
     margin-bottom: 1rem;
+    font-size: 2.5rem;
   }
   .thankyou-container p {
     margin-bottom: 2rem;
+    font-size: 1.2rem;
+    color: #333;
   }
   .btn-return {
     display: inline-block;
@@ -33,6 +49,7 @@
     text-decoration: none;
     border-radius: 8px;
     font-weight: 600;
+    transition: background 0.3s;
   }
   .btn-return:hover {
     background: #218838;
@@ -40,51 +57,88 @@
 </style>
 </head>
 <body>
-  <header>
-    <!-- Votre header identique aux autres pages -->
-  </header>
 
-  <main>
-    <div class="thankyou-container">
-      <h1 data-i18n="thankyou.title">Merci !</h1>
-      <p data-i18n="thankyou.message">Votre formulaire de réception a bien été envoyé. Nous vous contacterons si nécessaire.</p>
-      <a href="reception.html" class="btn-return" data-i18n="thankyou.button">Retour au formulaire</a>
+<header>
+  <div class="header-top">
+    <img src="logo_selmiles.png" alt="SelMiles logo" class="main-logo"> 
+    <div class="lang-switch">
+      <button onclick="applyLang('fr')">FR</button>
+      <button onclick="applyLang('en')">EN</button>
+      <button onclick="applyLang('cn')">CN</button>
     </div>
-  </main>
+  </div>
+  <nav class="header-nav">
+    <a href="index.html#about" data-i18n="nav.about">À propos</a>
+    <a href="index.html#services" data-i18n="nav.services">Services</a>
+    <a href="index.html#advantages" data-i18n="nav.advantages">Pourquoi SelMiles</a>
+    <a href="index.html#contact" data-i18n="nav.contact">Contact</a>
+    <a href="reception.html" data-i18n="nav.reception">Réception</a>
+  </nav>
+</header>
 
-  <footer>
-    <!-- Votre footer identique -->
-  </footer>
+<main>
+  <div class="thankyou-container">
+    <h1 data-i18n="thankyou.title">Merci !</h1>
+    <p data-i18n="thankyou.message">Votre formulaire de réception a bien été envoyé. Nous vous contacterons si nécessaire.</p>
+    <a href="reception.html" class="btn-return" data-i18n="thankyou.button">Retour au formulaire</a>
+  </div>
+</main>
 
-  <script>
-    const translations = {
-      fr: {
-        "thankyou.title": "Merci !",
-        "thankyou.message": "Votre formulaire de réception a bien été envoyé. Nous vous contacterons si nécessaire.",
-        "thankyou.button": "Retour au formulaire"
-      },
-      en: {
-        "thankyou.title": "Thank you!",
-        "thankyou.message": "Your reception form has been sent successfully. We will contact you if needed.",
-        "thankyou.button": "Back to form"
-      },
-      cn: {
-        "thankyou.title": "谢谢！",
-        "thankyou.message": "您的收货表格已成功发送。如有需要，我们会与您联系。",
-        "thankyou.button": "返回表格"
-      }
-    };
+<footer>
+  <p class="copyright-text">© 2025 SelMiles. Tous droits réservés.</p>
+  <div class="footer-logos">
+    <a href="https://www.linkedin.com/company/selmiles/" target="_blank"><img src="linkedIn_icon.png" alt="LinkedIn"></a>
+    <a href="https://www.instagram.com/selmiles_logistics/" target="_blank"><img src="instagram_icon.png" alt="Instagram"></a>
+    <a href="https://wa.me/33773059777" target="_blank"><img src="whatsapp_logo_icon.png" alt="WhatsApp"></a>
+  </div>
+</footer>
 
-    function applyLang(lang) {
-      document.querySelectorAll('[data-i18n]').forEach(el => {
-        const key = el.getAttribute('data-i18n');
-        if (translations[lang] && translations[lang][key]) {
-          el.innerHTML = translations[lang][key];
-        }
-      });
-      localStorage.setItem('lang', lang);
+<script>
+const translations = {
+  fr: {
+    "nav.about": "À propos",
+    "nav.services": "Services",
+    "nav.advantages": "Pourquoi SelMiles",
+    "nav.contact": "Contact",
+    "nav.reception": "Réception",
+    "thankyou.title": "Merci !",
+    "thankyou.message": "Votre formulaire de réception a bien été envoyé. Nous vous contacterons si nécessaire.",
+    "thankyou.button": "Retour au formulaire"
+  },
+  en: {
+    "nav.about": "About",
+    "nav.services": "Services",
+    "nav.advantages": "Why SelMiles",
+    "nav.contact": "Contact",
+    "nav.reception": "Reception",
+    "thankyou.title": "Thank you!",
+    "thankyou.message": "Your reception form has been sent successfully. We will contact you if needed.",
+    "thankyou.button": "Back to form"
+  },
+  cn: {
+    "nav.about": "关于",
+    "nav.services": "服务",
+    "nav.advantages": "为什么选择我们",
+    "nav.contact": "联系",
+    "nav.reception": "收货表格",
+    "thankyou.title": "谢谢！",
+    "thankyou.message": "您的收货表格已成功发送。如有需要，我们会与您联系。",
+    "thankyou.button": "返回表格"
+  }
+};
+
+function applyLang(lang) {
+  document.querySelectorAll('[data-i18n]').forEach(el => {
+    const key = el.getAttribute('data-i18n');
+    if (translations[lang] && translations[lang][key]) {
+      el.innerHTML = translations[lang][key];
     }
-    applyLang(localStorage.getItem('lang') || 'fr');
-  </script>
+  });
+  localStorage.setItem('lang', lang);
+}
+
+// Appliquer la langue sauvegardée ou français par défaut
+applyLang(localStorage.getItem('lang') || 'fr');
+</script>
 </body>
 </html>
