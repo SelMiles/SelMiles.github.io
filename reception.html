@@ -116,8 +116,11 @@
       <label for="eta" data-i18n="reception.eta" class="required">Date estimée d'arrivée</label>
       <input type="date" id="eta" name="eta" required>
 
-      <label for="cartons" data-i18n="reception.cartons" class="required">Nombre de cartons / palettes</label>
+      <label for="cartons" data-i18n="reception.cartons" class="required">Nombre total de cartons / colis</label>
       <input type="number" id="cartons" name="cartons" required>
+
+      <label for="pallet_info" data-i18n="reception.pallet_info">Précisions sur les palettes (si livré sur palette)</label>
+      <textarea id="pallet_info" name="pallet_info" rows="2" placeholder="Ex: 50 cartons sur une palette, 2 palettes complètes, palettes à retourner..."></textarea>
 
       <label for="product_list" data-i18n="reception.product_list" class="required">Liste des produits (SKU, désignation, quantité)</label>
       <textarea id="product_list" name="product_list" rows="5" required></textarea>
@@ -189,7 +192,8 @@ const translations = {
     "reception.other": "Autre",
     "reception.tracking": "Numéro de suivi / BL",
     "reception.eta": "Date estimée d'arrivée",
-    "reception.cartons": "Nombre de cartons / palettes",
+    "reception.cartons": "Nombre total de cartons / colis",
+    "reception.pallet_info": "Précisions sur les palettes (si livré sur palette)",
     "reception.product_list": "Liste des produits (SKU, désignation, quantité)",
     "reception.special_instructions": "Instructions particulières",
     "reception.submit": "Envoyer la réception"
@@ -242,7 +246,8 @@ const translations = {
     "reception.other": "Other",
     "reception.tracking": "Tracking number / BOL",
     "reception.eta": "Estimated arrival date",
-    "reception.cartons": "Number of cartons / pallets",
+    "reception.cartons": "Total number of cartons / parcels",
+    "reception.pallet_info": "Pallet details (if delivered on pallets)",
     "reception.product_list": "Product list (SKU, description, quantity)",
     "reception.special_instructions": "Special instructions",
     "reception.submit": "Submit reception"
@@ -295,7 +300,8 @@ const translations = {
     "reception.other": "其他",
     "reception.tracking": "追踪号码 / 提单",
     "reception.eta": "预计到达日期",
-    "reception.cartons": "纸箱 / 托盘数量",
+    "reception.cartons": "纸箱/包裹总数",
+    "reception.pallet_info": "托盘详情（如果使用托盘交付）",
     "reception.product_list": "产品列表 (SKU, 描述, 数量)",
     "reception.special_instructions": "特殊说明",
     "reception.submit": "提交收货信息"
