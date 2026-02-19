@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Merci - SelMiles</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+<style>
+  .thankyou-container {
+    max-width: 600px;
+    margin: 4rem auto;
+    padding: 2rem;
+    text-align: center;
+    background: #f9f9f9;
+    border-radius: 12px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  }
+  .thankyou-container h1 {
+    color: #28a745;
+    margin-bottom: 1rem;
+  }
+  .thankyou-container p {
+    margin-bottom: 2rem;
+  }
+  .btn-return {
+    display: inline-block;
+    padding: 0.75rem 2rem;
+    background: #28a745;
+    color: white;
+    text-decoration: none;
+    border-radius: 8px;
+    font-weight: 600;
+  }
+  .btn-return:hover {
+    background: #218838;
+  }
+</style>
+</head>
+<body>
+  <header>
+    <!-- Votre header identique aux autres pages -->
+  </header>
+
+  <main>
+    <div class="thankyou-container">
+      <h1 data-i18n="thankyou.title">Merci !</h1>
+      <p data-i18n="thankyou.message">Votre formulaire de réception a bien été envoyé. Nous vous contacterons si nécessaire.</p>
+      <a href="reception.html" class="btn-return" data-i18n="thankyou.button">Retour au formulaire</a>
+    </div>
+  </main>
+
+  <footer>
+    <!-- Votre footer identique -->
+  </footer>
+
+  <script>
+    const translations = {
+      fr: {
+        "thankyou.title": "Merci !",
+        "thankyou.message": "Votre formulaire de réception a bien été envoyé. Nous vous contacterons si nécessaire.",
+        "thankyou.button": "Retour au formulaire"
+      },
+      en: {
+        "thankyou.title": "Thank you!",
+        "thankyou.message": "Your reception form has been sent successfully. We will contact you if needed.",
+        "thankyou.button": "Back to form"
+      },
+      cn: {
+        "thankyou.title": "谢谢！",
+        "thankyou.message": "您的收货表格已成功发送。如有需要，我们会与您联系。",
+        "thankyou.button": "返回表格"
+      }
+    };
+
+    function applyLang(lang) {
+      document.querySelectorAll('[data-i18n]').forEach(el => {
+        const key = el.getAttribute('data-i18n');
+        if (translations[lang] && translations[lang][key]) {
+          el.innerHTML = translations[lang][key];
+        }
+      });
+      localStorage.setItem('lang', lang);
+    }
+    applyLang(localStorage.getItem('lang') || 'fr');
+  </script>
+</body>
+</html>
